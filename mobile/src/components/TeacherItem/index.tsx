@@ -49,11 +49,11 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher, favorited }) => {
           return teacherItem.id === teacher.id;
         }
       );
-      setIsFavorited(false);
       favoritesArray.splice(favoriteIndex, 1);
+      setIsFavorited(false);
     } else {
-      setIsFavorited(true);
       favoritesArray.push(teacher);
+      setIsFavorited(true);
     }
     await AsyncStorage.setItem("favorites", JSON.stringify(favoritesArray));
   }
